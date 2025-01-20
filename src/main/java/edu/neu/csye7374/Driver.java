@@ -11,9 +11,58 @@ public class Driver {
         System.out.println("============Main Execution Start===================\n\n");
 
         //your driver code here
-
+        demo();
         System.out.println("============Main Execution End===================");
    
+    }
+
+    public static void demo() {
+        // Get the singleton instance of the StockMarket
+        StockMarket stockMarket = StockMarket.getInstance();
+
+        // Create instances of each stock type
+        AppleStock appleStock = new AppleStock();
+        GoogleStock googleStock = new GoogleStock();
+
+        // Add stocks to the market
+        stockMarket.addStock(appleStock);
+        stockMarket.addStock(googleStock);
+
+        // Display initial stocks
+        System.out.println("Initial stocks in the stock market:");
+        stockMarket.displayStocks();
+        System.out.println();
+
+        // Define bids for Apple stock
+        double[] appleBids = {152.0, 149.5, 153.0, 150.0, 151.2, 153.4};
+        System.out.println("Starting trading for Apple Stock");
+        for (double bid : appleBids) {
+            System.out.println("\nPlacing bid for Apple: $" + bid);
+            stockMarket.tradeStock("Apple Inc.", String.valueOf(bid));
+            System.out.println("Apple Stock after bid: " + appleStock);
+            System.out.println("Apple Stock metric after bid: " + appleStock.getMetric());
+        }
+        System.out.println();
+
+        // Define bids for Google stock
+        double[] googleBids = {125.5, 127.0, 124.0, 130.0, 131.8, 130.9};
+        System.out.println("Starting trading for Google Stock");
+        for (double bid : googleBids) {
+            System.out.println("\nPlacing bid for Google: $" + bid);
+            stockMarket.tradeStock("Google Inc.", String.valueOf(bid));
+            System.out.println("Google Stock after bid: " + googleStock);
+            System.out.println("Google Stock metric after bid: " + googleStock.getMetric());
+        }
+        System.out.println();
+
+        // Display all stocks after trading
+        System.out.println("All stocks in the market after trading:");
+        stockMarket.displayStocks();
+
+        // Removing a stock, for example, Apple
+        stockMarket.removeStock(appleStock);
+        System.out.println("\nStocks in the stock market after removing Apple:");
+        stockMarket.displayStocks();
     }
 }
 

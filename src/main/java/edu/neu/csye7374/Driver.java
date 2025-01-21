@@ -23,13 +23,13 @@ public class Driver {
         AppleStock appleStock = new AppleStock();
         GoogleStock googleStock = new GoogleStock();
         TeslaStock teslaStock = new TeslaStock();
-        IBMStock ibmStock = new IBMStock(); // New IBMStock instance
+        IBMStock ibmStock = new IBMStock(); 
 
         // Add stocks to the market
         stockMarket.addStock(appleStock);
         stockMarket.addStock(googleStock);
         stockMarket.addStock(teslaStock);
-        stockMarket.addStock(ibmStock); // Add IBMStock to the market
+        stockMarket.addStock(ibmStock); 
 
         // Display initial stocks
         System.out.println("Initial stocks in the stock market:");

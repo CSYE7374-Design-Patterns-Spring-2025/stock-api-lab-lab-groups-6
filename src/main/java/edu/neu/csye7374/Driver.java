@@ -13,7 +13,6 @@ public class Driver {
         //your driver code here
         demo();
         System.out.println("============Main Execution End===================");
-   
     }
 
     public static void demo() {
@@ -24,13 +23,13 @@ public class Driver {
         AppleStock appleStock = new AppleStock();
         GoogleStock googleStock = new GoogleStock();
         TeslaStock teslaStock = new TeslaStock();
-
+        IBMStock ibmStock = new IBMStock(); // New IBMStock instance
 
         // Add stocks to the market
         stockMarket.addStock(appleStock);
         stockMarket.addStock(googleStock);
         stockMarket.addStock(teslaStock);
-
+        stockMarket.addStock(ibmStock); // Add IBMStock to the market
 
         // Display initial stocks
         System.out.println("Initial stocks in the stock market:");
@@ -58,8 +57,8 @@ public class Driver {
             System.out.println("Google Stock metric after bid: " + googleStock.getMetric());
         }
         System.out.println();
-        
-        // Define bids for Google stock
+
+        // Define bids for Tesla stock
         double[] teslaBids = {205.0, 198.0, 210.0, 215.0, 208.0, 220.0};
         System.out.println("\nStarting trading for Tesla Stock");
         for (double bid : teslaBids) {
@@ -67,6 +66,17 @@ public class Driver {
             stockMarket.tradeStock("Tesla Inc.", String.valueOf(bid));
             System.out.println("Tesla Stock after bid: " + teslaStock);
             System.out.println("Tesla Stock metric after bid: " + teslaStock.getMetric());
+        }
+        System.out.println();
+
+        // Define bids for IBM stock
+        double[] ibmBids = {135.5, 136.0, 134.8, 137.0, 135.2, 138.0};
+        System.out.println("\nStarting trading for IBM Stock");
+        for (double bid : ibmBids) {
+            System.out.println("\nPlacing bid for IBM: $" + bid);
+            stockMarket.tradeStock("IBM Corp.", String.valueOf(bid));
+            System.out.println("IBM Stock after bid: " + ibmStock);
+            System.out.println("IBM Stock metric after bid: " + ibmStock.getMetric());
         }
         System.out.println();
 
@@ -80,6 +90,3 @@ public class Driver {
         stockMarket.displayStocks();
     }
 }
-
-
-

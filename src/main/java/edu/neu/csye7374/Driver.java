@@ -1,21 +1,16 @@
 package edu.neu.csye7374;
 
-/**
- * 
- * @author Preyash Mehta
- * 
- */
+import edu.neu.csye7374.model.StockMarket;
 
+/**
+ * @author Anuj Sharma
+ */
 public class Driver {
     public static void main(String[] args) {
         System.out.println("============Main Execution Start===================\n\n");
 
-        //your driver code here
-
-        System.out.println("============Main Execution End===================");
-   
+        //Add your code in between these two print statements
+        StockMarket.demo();
+        System.out.println("\n\n============Main Execution End===================");
     }
 }
-
-
-

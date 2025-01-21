@@ -23,10 +23,14 @@ public class Driver {
         // Create instances of each stock type
         AppleStock appleStock = new AppleStock();
         GoogleStock googleStock = new GoogleStock();
+        TeslaStock teslaStock = new TeslaStock();
+
 
         // Add stocks to the market
         stockMarket.addStock(appleStock);
         stockMarket.addStock(googleStock);
+        stockMarket.addStock(teslaStock);
+
 
         // Display initial stocks
         System.out.println("Initial stocks in the stock market:");
@@ -52,6 +56,17 @@ public class Driver {
             stockMarket.tradeStock("Google Inc.", String.valueOf(bid));
             System.out.println("Google Stock after bid: " + googleStock);
             System.out.println("Google Stock metric after bid: " + googleStock.getMetric());
+        }
+        System.out.println();
+        
+        // Define bids for Google stock
+        double[] teslaBids = {205.0, 198.0, 210.0, 215.0, 208.0, 220.0};
+        System.out.println("\nStarting trading for Tesla Stock");
+        for (double bid : teslaBids) {
+            System.out.println("\nPlacing bid for Tesla: $" + bid);
+            stockMarket.tradeStock("Tesla Inc.", String.valueOf(bid));
+            System.out.println("Tesla Stock after bid: " + teslaStock);
+            System.out.println("Tesla Stock metric after bid: " + teslaStock.getMetric());
         }
         System.out.println();
 

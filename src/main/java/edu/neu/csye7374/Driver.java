@@ -19,9 +19,13 @@ public class Driver {
         // Get the singleton instance of the StockMarket
         StockMarket stockMarket = StockMarket.getInstance();
 
-        // Create instances of each stock type
-        AppleStock appleStock = new AppleStock();
-        GoogleStock googleStock = new GoogleStock();
+        // Use factory to create Apple and Google stocks
+        StockFactory appleFactory = AppleStockLazySingletonFactory.getInstance();
+        StockFactory googleFactory = GoogleStockEagerSingletonFactory.getInstance();
+
+        Stock appleStock = appleFactory.createStock();
+        Stock googleStock = googleFactory.createStock();
+
         TeslaStock teslaStock = new TeslaStock();
         IBMStock ibmStock = new IBMStock(); 
 
